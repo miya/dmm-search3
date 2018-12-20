@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: dmm-search3
+Version: 0.1
+Summary: DMM Web API v3.0 for Python3
+Home-page: https://github.com/0x0u/dmm
+Author: m0zu
+Author-email: m0zurillex@gmail.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Description: UNKNOWN
+Keywords: dmm
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
