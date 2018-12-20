@@ -1,6 +1,5 @@
 # dmm_search3
 [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/0x0u/dmm/blob/master/LICENSE.txt)
-
 [![Requirements Status](https://requires.io/github/0x0u/dmm_search3/requirements.svg?branch=master)](https://requires.io/github/0x0u/dmm_search3/requirements/?branch=master)   
 
 [DMM Webサービス](https://affiliate.dmm.com/api/)をPythonで扱うためのライブラリです。  
@@ -53,4 +52,5 @@ dmm.item_search(keyword='バレンタイン', hits=5, offset=10, sort='review')
 ```
 
 ## License
-MIT
+MIT    
+https://github.com/0x0u/dmm_search3/blob/master/LICENSE.txt
