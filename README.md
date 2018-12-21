@@ -3,9 +3,7 @@
 [![Build Status](https://travis-ci.org/0x0u/dmm_search3.svg?branch=master)](https://travis-ci.org/0x0u/dmm_search3)
 [![Requirements Status](https://requires.io/github/0x0u/dmm_search3/requirements.svg?branch=master)](https://requires.io/github/0x0u/dmm_search3/requirements/?branch=master)   
 
-[DMM Webサービス](https://affiliate.dmm.com/api/)をPythonで扱うためのライブラリです。  
-
-[コチラ](https://affiliate.dmm.com/api/regist_guide/)からアカウントを作成して、API IDとアフィリエイトIDを取得しておく必要があります。
+[DMM Webサービス](https://affiliate.dmm.com/api/)をPythonで扱うためのライブラリです。[コチラ](https://affiliate.dmm.com/api/regist_guide/)からアカウントを作成して、API IDとアフィリエイトIDを取得しておく必要があります。
 
 ## Install
 pipでインストールします。
@@ -19,7 +17,7 @@ pip3 install dmm_search3
 from dmm import DMM
 ```
 
-取得したAPI IDとアフィリエイトIDを下記変数に代入
+取得したAPI IDとアフィリエイトIDをセット
 ```Python
 api_id = 'your_api_id'
 affiliate_id = 'your_affiliate_id'
@@ -34,7 +32,7 @@ dmm = DMM(api_id=api_id, affiliate_id=affiliate_id)
 ```Python
 item = dmm.item_search(keyword='バレンタイン')
 for i in item:
-  print(i)
+　　　　print(i)
 ```
 
 メソッドは商品(item)、女優(actress)、ジャンル(genre)、メーカー
