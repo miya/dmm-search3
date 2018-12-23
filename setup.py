@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='dmm_search3',
-    version='0.02',
+    version='0.3',
     description='DMM Web API v3.0 for Python3',
     url='https://github.com/0x0u/dmm',
     author='m0zu',

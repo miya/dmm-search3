@@ -9,6 +9,7 @@
 pipでインストールします。
 ```
 pip3 install dmm_search3
+
 ```
 
 ## Usage
@@ -32,7 +33,7 @@ dmm = DMM(api_id=api_id, affiliate_id=affiliate_id)
 ```Python
 item = dmm.item_search(keyword='バレンタイン')
 for i in item:
-　　　　print(i)
+   print(i)
 ```
 
 メソッドは商品(item)、女優(actress)、ジャンル(genre)、メーカー
