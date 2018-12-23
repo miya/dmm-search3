@@ -1,3 +1,5 @@
 .DS_Store
 __pycache__
 *.pyc
+dist
+dmm_search3.egg-info
