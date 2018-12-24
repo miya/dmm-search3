@@ -25,10 +25,19 @@ THE SOFTWARE.
 import requests
 
 class DMM():
+    '''初期化
+    インスタンス変数にapi_idとaffiliate_idを代入
+    '''
     def __init__(self, api_id, affiliate_id):
         self.api_id = api_id
         self.affiliate_id = affiliate_id
 
+    '''検索メソッド
+    第一引数でItemList、FloorList、ActressSearch、GenreSearch、MakerSearch、SeriesSearch、AuthorSearchのいずれかを指定
+    第二引数以降はキーワード引数でDMM Web APIリファレンスのリクエストパラメーターを指定
+    urlに第一引数、第二引数移行をqueryに追加する
+    requestsでパラメーターにqueryを指定してgetリクエスト
+    '''
     def search(self, req, **key):
         url = 'https://api.dmm.com/affiliate/v3/{}?&site=FANZA'.format(req)
         query = {'api_id':self.api_id, 'affiliate_id':self.affiliate_id}

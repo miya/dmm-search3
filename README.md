@@ -1,57 +1,59 @@
 # dmm_search3
+
 [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/0x0u/dmm/blob/master/LICENSE.txt)
 [![Build Status](https://travis-ci.org/0x0u/dmm_search3.svg?branch=master)](https://travis-ci.org/0x0u/dmm_search3)
-[![Requirements Status](https://requires.io/github/0x0u/dmm_search3/requirements.svg?branch=master)](https://requires.io/github/0x0u/dmm_search3/requirements/?branch=master)   
+[![Requirements Status](https://requires.io/github/0x0u/dmm_search3/requirements.svg?branch=master)](https://requires.io/github/0x0u/dmm_search3/requirements/?branch=master)  
 
+https://pypi.org/project/dmm-search3/
+
+## dmm_search3 is 何
 [DMM Webサービス](https://affiliate.dmm.com/api/)をPythonで扱うためのライブラリです。[コチラ](https://affiliate.dmm.com/api/regist_guide/)からアカウントを作成して、API IDとアフィリエイトIDを取得しておく必要があります。
 
-## Install
+## インストール
 pipでインストールします。
 ```
 $ pip3 install dmm_search3
 ```
 
-## Usage
-モジュールのインポート
+## 使い方
+#### モジュールのインポート
 ```Python
 from dmm import DMM
 ```
 
-取得したAPI IDとアフィリエイトIDをセット
+#### 取得したAPI IDとアフィリエイトIDをセット
 ```Python
 api_id = 'your_api_id'
 affiliate_id = 'your_affiliate_id'
 ```
 
-インスタンスの作成
+#### インスタンスの作成
 ```Python
 dmm = DMM(api_id=api_id, affiliate_id=affiliate_id)
 ```
 
-検索メソッド(search)
-```Python
-dmm.search('物理名', keyword引数='')
-```
-
-searchメソッドの第一引数
-
-|論理名|物理名|
-|:--:|:--:|
-|商品検索|ItemList|
-|フロア検索|FloorList|
-|女優検索|ActressSearch|
-|ジャンル検索|GenreSearch|
-|メーカー検索|MakerSearch|
-|シリーズ検索|SeriesSearch|
-|作者検索|AuthorSearch|
-
-検索メソッドの第一引数は上記のいずれかの物理名を指定します。第二引数以降はキーワード引数で([APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html))のリクエストパラメータを指定します。引数に値を渡す場合は明示的にキーワードを指定しないとエラーが発生します。必須パラメーターである`api_id`、`affiliate_id`はインスタンス作成時、`site`はデフォルトで'FANZA'に設定してあります。
-
+#### 検索(search)メソッド
 ```Python
 dmm.search('ItemsList', keyword='バレンタイン', hits=5, offset=10, sort='review')
 ```
 
-商品検索リクエストパラメーター引用
+検索メソッドの第一引数は、ItemList(商品検索)、FloorList(フロア検索)、ActressSearch(女優検索)、GenreSearch(ジャンル検索)、MakerSearch(メーカー検索)、SeriesSearch(シリーズ検索)、AuthorSearch(作者検索)のいずれかを指定します。第二引数以降は([APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html))のリクエストパラメータを指定します。可変長引数で受け取るので、`keyword='バレンタイン'`のように明示的にキーワードと値を指定します。必須パラメーターである`api_id`、`affiliate_id`はインスタンス作成時、`site`はデフォルトで'FANZA'に設定してあります。
+
+#### searchメソッドの第一引数
+
+|論理名|物理名|APIリファレンス|
+|:--:|:--:|:--:|
+|商品検索|ItemList|https://affiliate.dmm.com/api/v3/itemlist.html
+|フロア検索|FloorList|https://affiliate.dmm.com/api/v3/floorlist.html
+|女優検索|ActressSearch|https://affiliate.dmm.com/api/v3/actresssearch.html
+|ジャンル検索|GenreSearch|https://affiliate.dmm.com/api/v3/itemlist.html
+|メーカー検索|MakerSearch|https://affiliate.dmm.com/api/v3/makersearch.html
+|シリーズ検索|SeriesSearch|https://affiliate.dmm.com/api/v3/seriessearch.html
+|作者検索|AuthorSearch|https://affiliate.dmm.com/api/v3/authorsearch.html
+
+
+
+#### searchメソッドの第二引数以降(商品検索のリクエストパラメーター引用)
 
 |論理名|物理名|必須|値のサンプル|概要|
 |:--|:--|:--|:--|:--|
@@ -72,9 +74,9 @@ dmm.search('ItemsList', keyword='バレンタイン', hits=5, offset=10, sort='r
 |出力形式|output||json|json / xml|
 |コールバック|callback||callback|出力形式jsonで指定した場合に、このパラメータでコールバック関数名を指定すると、JSONP形式で出力されます
 
-商品検索の例
+#### 商品検索の例
 ```Python
-items = dmm.search('ItemList', keyword='バレンタイン' , hits=9)
+items = dmm.search('ItemList', keyword='バレンタイン', hits=9)
 for i in items['items']:
     print(i.get('title'))
 
