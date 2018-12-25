@@ -59,7 +59,7 @@ for i in items['items']:
 レスポンスに関しても[APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html)のレスポンスフィールドを参照してください。
 
 ## searchメソッド引数
-####　第一引数
+#### 第一引数
 
 |論理名|物理名|APIリファレンス|
 |:--:|:--:|:--:|
