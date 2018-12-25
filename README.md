@@ -39,7 +39,27 @@ dmm.search('ItemsList', keyword='バレンタイン', hits=5, offset=10, sort='r
 
 検索メソッドの第一引数は、ItemList(商品検索)、FloorList(フロア検索)、ActressSearch(女優検索)、GenreSearch(ジャンル検索)、MakerSearch(メーカー検索)、SeriesSearch(シリーズ検索)、AuthorSearch(作者検索)のいずれかを指定します。第二引数以降は([APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html))のリクエストパラメータを指定します。可変長引数で受け取るので、`keyword='バレンタイン'`のように明示的にキーワードと値を指定します。必須パラメーターである`api_id`、`affiliate_id`はインスタンス作成時、`site`はデフォルトで'FANZA'に設定してあります。
 
-#### searchメソッドの第一引数
+#### 商品検索の例
+```Python
+items = dmm.search('ItemList', keyword='バレンタイン', hits=9)
+for i in items['items']:
+    print(i.get('title'))
+
+# => バレンタイン・ゲーム（単話）   
+#    落合くんの半減（単話）
+#    オトメ錬金術（単話）
+#    アクションピザッツ 2016年4月号
+#    コミックホットミルク 2016年03月号
+#    comicアンスリウム Vol.35
+#    すぺしゃるでこれーしょん（単話）
+#    とっぴんぐえんじぇるず（単話）
+#    チョコはおまけで（単話）
+```
+
+レスポンスに関しても[APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html)のレスポンスフィールドを参照してください。
+
+## searchメソッド引数
+####　第一引数
 
 |論理名|物理名|APIリファレンス|
 |:--:|:--:|:--:|
@@ -51,9 +71,7 @@ dmm.search('ItemsList', keyword='バレンタイン', hits=5, offset=10, sort='r
 |シリーズ検索|SeriesSearch|https://affiliate.dmm.com/api/v3/seriessearch.html
 |作者検索|AuthorSearch|https://affiliate.dmm.com/api/v3/authorsearch.html
 
-
-
-#### searchメソッドの第二引数以降(商品検索のリクエストパラメーター引用)
+#### 第二引数以降(商品検索のリクエストパラメーター引用)
 
 |論理名|物理名|必須|値のサンプル|概要|
 |:--|:--|:--|:--|:--|
@@ -73,25 +91,6 @@ dmm.search('ItemsList', keyword='バレンタイン', hits=5, offset=10, sort='r
 |在庫絞り込み|mono_stock||mono|初期値：絞り込みなし<br>在庫あり：stock<br>予約受付中：reserve<br>DMM通販のみ：mono<br>マーケットプレイスのみ：dmp<br>※通販サービスのみ指定可能
 |出力形式|output||json|json / xml|
 |コールバック|callback||callback|出力形式jsonで指定した場合に、このパラメータでコールバック関数名を指定すると、JSONP形式で出力されます
-
-#### 商品検索の例
-```Python
-items = dmm.search('ItemList', keyword='バレンタイン', hits=9)
-for i in items['items']:
-    print(i.get('title'))
-
-# => バレンタイン・ゲーム（単話）   
-#    落合くんの半減（単話）
-#    オトメ錬金術（単話）
-#    アクションピザッツ 2016年4月号
-#    コミックホットミルク 2016年03月号
-#    comicアンスリウム Vol.35
-#    すぺしゃるでこれーしょん（単話）
-#    とっぴんぐえんじぇるず（単話）
-#    チョコはおまけで（単話）
-```
-
-レスポンスに関しても[APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html)のレスポンスフィールドを参照してください。
 
 ## License
 MIT    
