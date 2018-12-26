@@ -1,4 +1,7 @@
+import os
 from setuptools import setup, find_packages
+
+install_reqs = [line.strip() for line in open('requirements.txt').readlines()]
 
 setup(
     name='dmm_search3',
@@ -8,9 +11,9 @@ setup(
     author='m0zu',
     author_email='m0zurillex@gmail.com',
     license='MIT',
-    keywords='dmm',
+    keywords='Python3 dmm API ',
     packages=find_packages(),
-    install_requires=['requests==2.21.0'],
+    install_requires=install_requires,
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     classifiers=['Programming Language :: Python :: 3.6']
