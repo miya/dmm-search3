@@ -44,3 +44,7 @@ class DMM():
         query.update(key)
         data = requests.get(url, params=query).json()
         return data['result']
+
+    @classmethod
+    def sample_download(cls):
+        pass
