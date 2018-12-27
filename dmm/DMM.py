@@ -47,4 +47,5 @@ class DMM():
 
     @classmethod
     def sample_download(cls):
-        pass
+        print('test')
+        
