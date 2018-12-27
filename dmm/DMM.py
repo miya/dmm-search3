@@ -22,7 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 '''
 
+import re
 import requests
+import youtube_dl
 
 class DMM():
     '''初期化
@@ -45,7 +47,20 @@ class DMM():
         data = requests.get(url, params=query).json()
         return data['result']
 
+    '''サンプルダウンローダーメソッド
+    引数でcontent_idを受け取り、サンプル動画をダウンロードするクラスメソッドです。
+    '''
     @classmethod
-    def sample_download(cls):
-        print('test')
-        
+    def sample_download(cls, cid, fname):
+        url = 'http://www.dmm.co.jp/litevideo/-/detail/=/cid={}/'.format(cid)
+        req = requests.get(url)
+        status = req.status_code
+        if status == 200:
+            m = re.findall('{"content_id":"(.+)"}', req.text)[0]
+            url2 = 'http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_sm_w.mp4'.format(m[:1], m[:3], m, m)
+            req2 = requests.get(url2)
+            status2 = req2.status_code
+            if status2 == 200:
+                ydl_opts = {'outtmpl':fname + '.mp4'}
+                with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                    ydl.download([url2])
