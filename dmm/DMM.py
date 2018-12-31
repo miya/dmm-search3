@@ -1,7 +1,7 @@
 '''
 The MIT License (MIT)
 
-Copyright (c) 2015 bpyamasinn.
+Copyright (c) dmm_search3.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -36,9 +36,9 @@ class DMM():
 
     '''検索メソッド
     第一引数でItemList、FloorList、ActressSearch、GenreSearch、MakerSearch、SeriesSearch、AuthorSearchのいずれかを指定
-    第二引数以降はキーワード引数でDMM Web APIリファレンスのリクエストパラメーターを指定
-    urlに第一引数、第二引数移行をqueryに追加する
-    requestsでパラメーターにqueryを指定してgetリクエスト
+    第二引数以降はキーワード引数でDMM Web APIリファレンスのリクエストパラメーターを指定。
+    urlに第一引数、第二引数移行をqueryに追加する。
+    requestsでパラメーターにqueryを指定してgetリクエスト。
     '''
     def search(self, req, **key):
         url = 'https://api.dmm.com/affiliate/v3/{}?&site=FANZA'.format(req)
@@ -48,10 +48,12 @@ class DMM():
         return data['result']
 
     '''サンプルダウンローダーメソッド
-    引数でcontent_idを受け取り、サンプル動画をダウンロードするクラスメソッドです。
+    content_idからサンプル動画をダウンロードするクラスメソッド。
+    第一引数にcontent_idを指定、
+    第二引数はファイル名を指定。第二引数を省略した場合はcontent_idがそのままファイル名になる。
     '''
     @classmethod
-    def sample_download(cls, cid, fname):
+    def sample_download(cls, cid, fname=None):
         url = 'http://www.dmm.co.jp/litevideo/-/detail/=/cid={}/'.format(cid)
         req = requests.get(url)
         status = req.status_code
@@ -61,6 +63,16 @@ class DMM():
             req2 = requests.get(url2)
             status2 = req2.status_code
             if status2 == 200:
-                ydl_opts = {'outtmpl':fname + '.mp4'}
+                if fname == None:
+                    fname = cid
+                ydl_opts = {
+                    'outtmpl':fname + '.mp4',
+                    'quiet':True
+                    }
                 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                     ydl.download([url2])
+                return status2
+            else:
+                return status2
+        else:
+            return status
