@@ -34,7 +34,7 @@ dmm = DMM(api_id=api_id, affiliate_id=affiliate_id)
 
 #### 検索(search)メソッド
 ```Python
-dmm.search('ItemsList', keyword='バレンタイン', hits=5, offset=10, sort='review')
+dmm.search('ItemList', keyword='バレンタイン', hits=5, offset=10, sort='review')
 ```
 
 検索メソッドの第一引数は、ItemList(商品検索)、FloorList(フロア検索)、ActressSearch(女優検索)、GenreSearch(ジャンル検索)、MakerSearch(メーカー検索)、SeriesSearch(シリーズ検索)、AuthorSearch(作者検索)のいずれかを指定します。第二引数以降は[APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html)のリクエストパラメータを指定します。可変長引数で受け取るので、`keyword='バレンタイン'`のように明示的にキーワードと値を指定します。必須パラメーターである`api_id`、`affiliate_id`はインスタンス作成時、`site`はデフォルトで'FANZA'に設定してあります。
@@ -66,7 +66,7 @@ for i in items['items']:
 |商品検索|ItemList|https://affiliate.dmm.com/api/v3/itemlist.html
 |フロア検索|FloorList|https://affiliate.dmm.com/api/v3/floorlist.html
 |女優検索|ActressSearch|https://affiliate.dmm.com/api/v3/actresssearch.html
-|ジャンル検索|GenreSearch|https://affiliate.dmm.com/api/v3/itemlist.html
+|ジャンル検索|GenreSearch|https://affiliate.dmm.com/api/v3/genresearch.html
 |メーカー検索|MakerSearch|https://affiliate.dmm.com/api/v3/makersearch.html
 |シリーズ検索|SeriesSearch|https://affiliate.dmm.com/api/v3/seriessearch.html
 |作者検索|AuthorSearch|https://affiliate.dmm.com/api/v3/authorsearch.html

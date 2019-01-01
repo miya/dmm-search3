@@ -3,4 +3,4 @@ __pycache__
 *.pyc
 dist
 dmm_search3.egg-info
-test.py
+sample.py

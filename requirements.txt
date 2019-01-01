@@ -1,2 +1,2 @@
 requests==2.21.0
-youtube-dl==2018.12.17
+youtube-dl==2018.12.31
