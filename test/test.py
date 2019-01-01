@@ -2,8 +2,9 @@ import os
 from dmm import DMM
 
 # api_idとアフィリエイトIDをセット
-api_id = os.environ('api_id')
-affiliate_id = os.environ('affiliate_id')
+api_id = os.environ.get('api_id')
+affiliate_id = os.environ.get('affiliate_id')
+
 
 #インスタンスを作成
 dmm = DMM(api_id=api_id, affiliate_id=affiliate_id)
