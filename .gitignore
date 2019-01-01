@@ -4,3 +4,4 @@ __pycache__
 dist
 dmm_search3.egg-info
 sample.py
+build
