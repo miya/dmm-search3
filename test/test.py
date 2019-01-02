@@ -1,3 +1,5 @@
+#Travis CIの定期ビルド時に実行されるテスト用スクリプトです
+
 import os
 from dmm import DMM
 
