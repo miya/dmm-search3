@@ -16,30 +16,30 @@ $ pip3 install dmm_search3
 ```
 
 ## 使い方
-#### モジュールのインポート
+##### モジュールのインポート
 ```Python
 from dmm import DMM
 ```
 
-#### 取得したAPI IDとアフィリエイトIDをセット
+##### 取得したAPI IDとアフィリエイトIDをセット
 ```Python
 api_id = 'your_api_id'
 affiliate_id = 'your_affiliate_id'
 ```
 
-#### インスタンスの作成
+##### インスタンスの作成
 ```Python
 dmm = DMM(api_id=api_id, affiliate_id=affiliate_id)
 ```
 
-#### 検索(search)メソッド
+### 検索(search)メソッド
 ```Python
 dmm.search('ItemList', keyword='バレンタイン', hits=5, offset=10, sort='review')
 ```
 
 検索メソッドの第一引数は、ItemList(商品検索)、FloorList(フロア検索)、ActressSearch(女優検索)、GenreSearch(ジャンル検索)、MakerSearch(メーカー検索)、SeriesSearch(シリーズ検索)、AuthorSearch(作者検索)のいずれかを指定します。第二引数以降は[APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html)のリクエストパラメータを指定します。可変長引数で受け取るので、`keyword='バレンタイン'`のように明示的にキーワードと値を指定します。必須パラメーターである`api_id`、`affiliate_id`はインスタンス作成時、`site`はデフォルトで'FANZA'に設定してあります。
 
-#### 商品検索の例
+##### メソッドの使用例
 ```Python
 items = dmm.search('ItemList', keyword='バレンタイン', hits=9)
 for i in items['items']:
@@ -58,8 +58,8 @@ for i in items['items']:
 
 レスポンスに関しても[APIリファレンス](https://affiliate.dmm.com/api/v3/itemlist.html)のレスポンスフィールドを参照してください。
 
-## searchメソッド引数
-#### 第一引数
+#### searchメソッド引数
+##### 第一引数
 
 |論理名|物理名|APIリファレンス|
 |:--:|:--:|:--:|
@@ -71,7 +71,7 @@ for i in items['items']:
 |シリーズ検索|SeriesSearch|https://affiliate.dmm.com/api/v3/seriessearch.html
 |作者検索|AuthorSearch|https://affiliate.dmm.com/api/v3/authorsearch.html
 
-#### 第二引数以降(商品検索のリクエストパラメーター引用)
+##### 第二引数以降(商品検索のリクエストパラメーター引用)
 
 |論理名|物理名|必須|値のサンプル|概要|
 |:--|:--|:--|:--|:--|
@@ -92,6 +92,20 @@ for i in items['items']:
 |出力形式|output||json|json / xml|
 |コールバック|callback||callback|出力形式jsonで指定した場合に、このパラメータでコールバック関数名を指定すると、JSONP形式で出力されます
 
+### サンプル動画ダウンロード(sample_download)メソッド
+```Python
+DMM.sample_download(cid='1vandr00069', fname='sample')
+```
+サンプル動画ダウンロードメソッドはクラスメソッドなので、インスタンス化する必要はありません。第一引数に動画のcontent_idを、第二引数にはファイル名を入れます。第二引数を入れた場合は、`sample.mp4`というファイル名でダウンロードされます。省略した場合はcontent_idがそのままファイル名(`1vandr00069.mp4`)となります。
+
+##### メソッドの使用例
+searchメソッドからcontent_idを抜き出して、sample_downloadメソッドに渡す
+```Python
+items = dmm.search('ItemList', keyword='バレンタイン', hits=9)
+for i in items['items']:
+    cid = i.get('cid')
+    DMM.sample_download(cid)
+```
 ## License
 MIT    
 https://github.com/0x0u/dmm_search3/blob/master/LICENSE.txt
