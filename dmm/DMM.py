@@ -25,6 +25,7 @@ THE SOFTWARE.
 import re
 import requests
 import youtube_dl
+from bs4 import BeautifulSoup
 
 class DMM():
     '''初期化
