@@ -14,7 +14,7 @@ setup(
     keywords='Python3 dmm API ',
     packages=find_packages(),
     install_requires=install_reqs,
-    # long_description=open('README.md').read(),
-    # long_description_content_type='text/markdown',
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     classifiers=['Programming Language :: Python :: 3.6']
 )
