@@ -77,6 +77,7 @@ for i in items['items']:
 
 ## APIリファレンス（一部）
 検索メソッド第一引数
+
 |論理名|物理名|APIリファレンス|
 |:--:|:--:|:--:|
 |商品検索|ItemList|https://affiliate.dmm.com/api/v3/itemlist.html
@@ -88,6 +89,7 @@ for i in items['items']:
 |作者検索|AuthorSearch|https://affiliate.dmm.com/api/v3/authorsearch.html
 
 検索メソッド第二引数以降
+
 |論理名|物理名|必須|値のサンプル|概要|
 |:--|:--|:--|:--|:--|
 |APIID|api_id|○||登録時に割り振られたID|
