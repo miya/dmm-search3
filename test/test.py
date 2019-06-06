@@ -34,6 +34,5 @@ series = dmm.search('SeriesSearch', initial='あ')
 #作者検索API
 author = dmm.search('AuthorSearch', initial='あ')
 
-
 #サンプル動画ダウンロードメソッド
-DMM.sample_download('ssni378')
+DMM.video_download('ssni378')
