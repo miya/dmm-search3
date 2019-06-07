@@ -23,6 +23,7 @@ THE SOFTWARE.
 '''
 
 import re
+import lxml
 import requests
 import youtube_dl
 from bs4 import BeautifulSoup
@@ -59,7 +60,7 @@ class DMM():
         req = requests.get(url)
         status = req.status_code
         if status == 200:
-            soup = BeautifulSoup(req.text, 'html.parser')
+            soup = BeautifulSoup(req.text, 'lxml')
             f = soup.find('iframe', allow="autoplay").get('src')
             r = re.search(r'cid=(.*)/mtype', f)
             if r != None:
