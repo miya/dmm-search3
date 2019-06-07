@@ -59,7 +59,7 @@ class DMM():
         req = requests.get(url)
         status = req.status_code
         if status == 200:
-            soup = BeautifulSoup(req.text, 'lxml')
+            soup = BeautifulSoup(req.text, 'html.parser')
             f = soup.find('iframe', allow="autoplay").get('src')
             r = re.search(r'cid=(.*)/mtype', f)
             if r != None:
