@@ -75,10 +75,10 @@ class DMM():
             if status2 == 200:
                 if fname == None:
                     fname = cid
-                    ydl_opts = {
-                        'outtmpl':fname + '.mp4',
-                        'quiet':True
-                    }
+                ydl_opts = {
+                    'outtmpl':fname + '.mp4',
+                    'quiet':True
+                }
                 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                     ydl.download([url2])
                 return status2
