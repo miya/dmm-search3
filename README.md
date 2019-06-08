@@ -61,7 +61,7 @@ for i in items['items']:
 
 #### サンプル動画ダウンロード(video_download)メソッド
 ```Python
-DMM.sample_download(cid='1vandr00069', fname='sample')
+DMM.video_download(cid='1vandr00069', fname='sample')
 ```
 サンプル動画をダウンロードするメソッドです。これはクラスメソッドなのでインスタンス化する必要はありません。第一引数に動画のcontent_idを、第二引数にはファイル名を入れます。第二引数を入れた場合は、ファイル名.mp4というファイル名でダウンロードされます。第二引数を省略した場合はcontent_idがファイル名となります。
 
