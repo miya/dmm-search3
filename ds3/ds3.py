@@ -28,19 +28,11 @@ import youtube_dl
 from bs4 import BeautifulSoup
 
 class API():
-    '''初期化
-    インスタンス変数にapi_idとaffiliate_idを代入
-    '''
+
     def __init__(self, api_id, affiliate_id):
         self.api_id = api_id
         self.affiliate_id = affiliate_id
 
-    '''検索メソッド
-    第一引数でItemList、FloorList、ActressSearch、GenreSearch、MakerSearch、SeriesSearch、AuthorSearchのいずれかを指定
-    第二引数以降はキーワード引数でDMM Web APIリファレンスのリクエストパラメーターを指定。
-    urlに第一引数、第二引数移行をqueryに追加する。
-    requestsでパラメーターにqueryを指定してgetリクエスト。
-    '''
     def search(self, req, **key):
         url = 'https://api.dmm.com/affiliate/v3/{}?&site=FANZA'.format(req)
         query = {'api_id':self.api_id, 'affiliate_id':self.affiliate_id}
@@ -48,11 +40,6 @@ class API():
         data = requests.get(url, params=query).json()
         return data
         
-    '''サンプルダウンローダーメソッド
-    content_idからサンプル動画をダウンロードするクラスメソッド。
-    第一引数にcontent_idを指定、
-    第二引数はファイル名を指定。第二引数を省略した場合はcontent_idがそのままファイル名になる。
-    '''
     @classmethod
     def video_download(cls, cid, fname=None):
         url = 'https://www.dmm.co.jp/litevideo/-/detail/=/cid={}'.format(cid)
