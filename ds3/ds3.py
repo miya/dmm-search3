@@ -27,7 +27,7 @@ import requests
 import youtube_dl
 from bs4 import BeautifulSoup
 
-class DMM():
+class API():
     '''初期化
     インスタンス変数にapi_idとaffiliate_idを代入
     '''
@@ -46,8 +46,8 @@ class DMM():
         query = {'api_id':self.api_id, 'affiliate_id':self.affiliate_id}
         query.update(key)
         data = requests.get(url, params=query).json()
-        return data['result']
-
+        return data
+        
     '''サンプルダウンローダーメソッド
     content_idからサンプル動画をダウンロードするクラスメソッド。
     第一引数にcontent_idを指定、
