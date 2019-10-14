@@ -54,7 +54,7 @@ maker_search = api.maker_search(floor_id=91)
 series_search = api.series_search(floor_id=91)
 
 #作者検索
-author = api.author_search(floor_id=72)
+author_search = api.author_search(floor_id=91)
 ```
 
 各メソッドの引数は以下のリファレンスを参照してください。
