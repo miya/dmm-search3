@@ -1,4 +1,4 @@
 lxml
-requests==2.22.0
-youtube-dl==2019.5.20
-beautifulsoup4==4.7.1
+requests
+youtube-dl
+beautifulsoup4
