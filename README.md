@@ -67,35 +67,6 @@ DMM.sample_download(cid='blor0018', fname='sample')
 ```
 サンプル動画をダウンロードするメソッドです。クラスメソッドなのでインスタンス化する必要はありません。第一引数（cid）には商品検索メソッドから得たcontent_idや商品ページから取得できる品番を入れ、第二引数（fname）には必須ではないですが任意のファイル名を入れます。第二引数を省略した場合はcidがファイル名となります。
 
-#### Example
-商品検索メソッドを使って検索キーワードに関する９つのタイトルを出力する例です。
-
-```Python
-items = api.item_search(site='DMM.com', keyword='バレンタイン', hits=9)
-for i in items['result']['items']:
-    print(i.get('title'))
-
-# => バレンタイン・ゲーム（単話）   
-#    落合くんの半減（単話）
-#    オトメ錬金術（単話）
-#    アクションピザッツ 2016年4月号
-#    コミックホットミルク 2016年03月号
-#    comicアンスリウム Vol.35
-#    すぺしゃるでこれーしょん（単話）
-#    とっぴんぐえんじぇるず（単話）
-#    チョコはおまけで（単話）
-```
-
-サンプル動画ダウンロードメソッドの使用例
-商品検索検索メソッドからcontent_idを抜き出して、サンプル動画ダウンロードメソッドに渡す例です。
-```Python
-items = api.item_search(site='FANZA', keyword='バレンタイン', hits=10)
-for i in  items['result']['items']:
-    cid = i.get('content_id')
-    title = i.get('title')
-    status = DMM.sample_download(cid=cid)
-    print(cid, title, status)
-``
 
 ## License
 MIT    
