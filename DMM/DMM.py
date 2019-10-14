@@ -111,7 +111,7 @@ class DMM:
         ---------
         dict
             ジャンル一覧がJSONで返ります。
-            
+
         Docs
         ---------
         https://affiliate.dmm.com/api/v3/genresearch.html
@@ -223,4 +223,4 @@ class DMM:
             else:
                 return {'requests_status':status2, 'message': 'Failed to download video'}
         else:
-            return {'requests_status':status2, 'message': 'Failed to download video'}
+            return {'requests_status':status, 'message': 'Failed to get video link'}
