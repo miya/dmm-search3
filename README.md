@@ -33,7 +33,7 @@ affiliate_id = 'your_affiliate_id'
 api = DMM(api_id=api_id, affiliate_id=affiliate_id)
 ```
 
-### 各検索メソッド
+#### 各検索メソッド
 ```Python
 #商品検索
 item_search = api.item_search(site='FANZA', hits=1, keyword='バレンタイン')
@@ -61,7 +61,7 @@ author = api.author_search(floor_id=72)
 
 API リファレンス: https://affiliate.dmm.com/api/v3/itemlist.html
 
-### サンプル動画ダウンロードメソッド
+#### サンプル動画ダウンロードメソッド
 ```Python
 DMM.sample_download(cid='blor0018', fname='sample')
 ```
