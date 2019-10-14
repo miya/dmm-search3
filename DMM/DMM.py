@@ -111,7 +111,7 @@ class DMM:
         ---------
         dict
             ジャンル一覧がJSONで返ります。
-x
+            
         Docs
         ---------
         https://affiliate.dmm.com/api/v3/genresearch.html
