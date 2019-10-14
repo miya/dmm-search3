@@ -8,28 +8,28 @@ api_id = os.environ.get('api_id')
 affiliate_id = os.environ.get('affiliate_id')
 
 # インスタンスを作成
-dmm = DMM(api_id=api_id, affiliate_id=affiliate_id)
+api = DMM(api_id=api_id, affiliate_id=affiliate_id)
 
-# 商品検索API
-item = dmm.search('ItemList', keyword='明日花キララ')
+#商品検索
+item_search = api.item_search(site='FANZA', hits=1, keyword='バレンタイン')
 
-# フロアAPI
-floor = dmm.search('floorList')
+#フロア一覧
+floor_list = api.floor_list()
 
-# 女優検索API
-actress = dmm.search('ActressSearch', keyword='明日花キララ')
+#女優検索
+actress_search = api.actress_search()
 
-# ジャンル検索API
-genre = dmm.search('GenreSearch', keyword='明日花キララ')
+#ジャンル検索
+genre_search = api.genre_search(floor_id=91)
 
-# メーカー検索API
-maker = dmm.search('MakerSearch', initial='あ')
+#メーカー検索
+maker_search = api.maker_search(floor_id=91)
 
-# シリーズ検索API
-series = dmm.search('SeriesSearch', initial='あ')
+#シリーズ検索
+series_search = api.series_search(floor_id=91)
 
-# 作者検索API
-author = dmm.search('AuthorSearch', initial='あ')
+#作者検索
+author = api.author_search(floor_id=72)
 
-# サンプル動画ダウンロードメソッド
-DMM.video_download('ssni378')
+#サンプル動画ドウンロード
+dl_st = DMM.sample_download(cid='blor0018', fname='sample')
