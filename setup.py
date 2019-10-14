@@ -5,9 +5,9 @@ install_reqs = [line.strip() for line in open('requirements.txt').readlines()]
 
 setup(
     name='dmm_search3',
-    version='1.2.1',
+    version='2.0',
     description='DMM Web API v3.0 for Python3',
-    url='https://github.com/0x0u/dmm',
+    url='https://github.com/0x0u/dmm_search3',
     author='m0zu',
     author_email='m0zurillex@gmail.com',
     license='MIT',
