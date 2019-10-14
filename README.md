@@ -33,7 +33,7 @@ affiliate_id = 'your_affiliate_id'
 api = DMM(api_id=api_id, affiliate_id=affiliate_id)
 ```
 
-#### 各検索メソッド
+##### 各検索メソッド
 ```Python
 #商品検索
 item_search = api.item_search(site='FANZA', hits=1, keyword='バレンタイン')
@@ -61,12 +61,22 @@ author = api.author_search(floor_id=72)
 
 API リファレンス: https://affiliate.dmm.com/api/v3/itemlist.html
 
-#### サンプル動画ダウンロードメソッド
+##### サンプル動画ダウンロードメソッド
 ```Python
 DMM.sample_download(cid='blor0018', fname='sample')
 ```
 サンプル動画をダウンロードするメソッドです。クラスメソッドなのでインスタンス化する必要はありません。第一引数（cid）には商品検索メソッドから得たcontent_idや商品ページから取得できる品番を入れ、第二引数（fname）には必須ではないですが任意のファイル名を入れます。第二引数を省略した場合はcidがファイル名となります。
 
+### Example
+商品検索検索メソッドからcontent_idを抜き出して、サンプル動画ダウンロードメソッドに渡す例です。
+```Python
+items = api.item_search(site='FANZA', keyword='バレンタイン', hits=10)
+for i in  items['result']['items']:
+    cid = i.get('content_id')
+    title = i.get('title')
+    status = DMM.sample_download(cid=cid)
+    print(cid, title, status)
+``
 
 ### License
 MIT    
