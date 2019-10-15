@@ -63,7 +63,7 @@ DMM.sample_download(cid='blor0018', fname='sample')
 サンプル動画をダウンロードするメソッドです。クラスメソッドなのでインスタンス化する必要はありません。第一引数（cid）には商品検索メソッドから得たcontent_idや商品ページから取得できる品番を入れ、第二引数（fname）には必須ではないですが任意のファイル名を入れます。第二引数を省略した場合はcidがファイル名となります。
 
 ### Example
-商品検索検索メソッドからcontent_idを抜き出して、サンプル動画ダウンロードメソッドに渡す例です。
+商品検索メソッドからcontent_idを抜き出して、サンプル動画ダウンロードメソッドに渡す例です。
 ```Python
 items = api.item_search(site='FANZA', keyword='バレンタイン', hits=10)
 for i in  items['result']['items']:
