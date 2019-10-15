@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/0x0u/dmm_search3.svg?branch=master)](https://travis-ci.org/0x0u/dmm_search3)
 
 ## dmm_search3
-DMM APIをPythonで扱うライブラリです。
 [DMM Webサービス](https://affiliate.dmm.com/api/)をPythonで扱うためのライブラリです。[DMMアフィリエイト](https://affiliate.dmm.com/api/regist_guide)のアカウントを作成して、API IDとアフィリエイトIDを取得して使います。
 
 ### Install
