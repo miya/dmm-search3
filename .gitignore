@@ -1,5 +1,6 @@
 build/
 dist/
+.idea/
 dmm_search3.egg-info/
 
 .DS_Store
