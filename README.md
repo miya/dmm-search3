@@ -1,7 +1,5 @@
 [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/0x0u/dmm/blob/master/LICENSE.txt)
-
 [![Build Status](https://travis-ci.org/0x0u/dmm_search3.svg?branch=master)](https://travis-ci.org/0x0u/dmm_search3)
-
 ![](https://github.com/0x0u/dmm_search3/workflows/workflow/badge.svg)
 
 ## dmm_search3
