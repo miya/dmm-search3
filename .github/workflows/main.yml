@@ -1,0 +1,20 @@
+name: workflow
+
+on:
+  schedule:
+    - cron:  "05 15 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: install dmm_search3
+      run: pip3 install dmm_search3
+      
+    - name: run dmm_search3
+      run: python3 test/test.py
+      env:
+        api_id: ${{ secrets.api_id }}
+        affiliate_id: ${{ secrets.affiliate_id }}
