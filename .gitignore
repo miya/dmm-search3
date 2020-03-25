@@ -3,6 +3,7 @@ dist/
 .idea/
 dmm_search3.egg-info/
 
+*.mp4
 .DS_Store
 __pycache__
 *.pyc
