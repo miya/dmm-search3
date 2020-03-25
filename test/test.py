@@ -32,4 +32,4 @@ series_search = api.series_search(floor_id=91)
 author = api.author_search(floor_id=72)
 
 #サンプル動画ドウンロード
-dl_st = DMM.sample_download(cid='blor0018', fname='sample')
+dl_st = DMM.sample_download(cid='blor0018', fname='sample', size="big")
