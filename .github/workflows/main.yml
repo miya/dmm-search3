@@ -14,7 +14,7 @@ jobs:
       run: pip3 install dmm_search3
       
     - name: run dmm_search3
-      run: python3 test/test.py
+      run: python3 test.py
       env:
-        api_id: ${{ secrets.api_id }}
-        affiliate_id: ${{ secrets.affiliate_id }}
+        api_id: ${{ secrets.API_ID }}
+        affiliate_id: ${{ secrets.AFFILIATE_ID }}
