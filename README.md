@@ -1,4 +1,4 @@
-## dmm_search3 [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/0x0u/dmm/blob/master/LICENSE.txt) [![Build Status](https://travis-ci.org/0x0u/dmm_search3.svg?branch=master)](https://travis-ci.org/0x0u/dmm_search3) ![](https://github.com/0x0u/dmm_search3/workflows/workflow/badge.svg)
+## dmm_search3 [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/miya/dmm/blob/master/LICENSE.txt) [![Build Status](https://travis-ci.org/miya/dmm_search3.svg?branch=master)](https://travis-ci.org/0x0u/dmm_search3) ![](https://github.com/miya/dmm_search3/workflows/workflow/badge.svg)
 [DMM Webサービス](https://affiliate.dmm.com/api/)をPythonで扱うためのライブラリです。[DMMアフィリエイト](https://affiliate.dmm.com/api/regist_guide)のアカウントを作成して、API IDとアフィリエイトIDを取得して使います。
 
 ### Install
