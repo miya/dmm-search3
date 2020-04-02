@@ -27,11 +27,10 @@ affiliate_id = "your_affiliate_id"
 api = DMM(api_id=api_id, affiliate_id=affiliate_id)
 ```
 
-## Usage
-検索
+## Feature
 ```python
 #商品検索
-item_search = api.item_search(site="FANZA', hits=1, keyword='バレンタイン')
+item_search = api.item_search(site="FANZA", hits=1, keyword="バレンタイン")
 
 #フロア一覧
 floor_list = api.floor_list()
@@ -50,8 +49,10 @@ series_search = api.series_search(floor_id=91)
 
 #作者検索
 author_search = api.author_search(floor_id=91)
+
+# サンプル動画ドウンロード
+DMM.sample_download(cid="abgktk_0012", fname="sample", size="big")
 ```
 
-サンプル動画ダウンロード
-
-# Sample
+## Sample
+Please refer [here](https://github.com/miya/dmm_search3/blob/master/test.py).
