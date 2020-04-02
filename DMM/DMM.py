@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-
 import re
 import requests
 import youtube_dl
@@ -30,12 +29,12 @@ from bs4 import BeautifulSoup
 
 
 class DMM:
- 
+
     def __init__(self, api_id=None, affiliate_id=None):
         self.api_url = "https://api.dmm.com/affiliate/v3"
         self.api_id = api_id
         self.affiliate_id = affiliate_id
-    
+
     def request(self, endpoint, kwargs):
         url = self.api_url + endpoint
 
@@ -46,7 +45,7 @@ class DMM:
         }
 
         query.update(kwargs)
-        
+
         return requests.get(url, params=query).json()
 
     def item_search(self, **kwargs):
@@ -174,7 +173,7 @@ class DMM:
         """
         endpoint = "AuthorSearch"
         return self.request(endpoint, kwargs)
-    
+
     @classmethod
     def sample_download(cls, cid, fname=None, size="small"):
         """サンプル動画ダウンロード
@@ -197,33 +196,41 @@ class DMM:
         dict
             requestsのステータスコードと動画ダウンロードの成否が返ります。
         """
-        url = "https://www.dmm.co.jp/litevideo/-/detail/=/cid={}".format(cid)
-        req = requests.get(url)
-        status = req.status_code
-        if status == 200:
-            soup = BeautifulSoup(req.text, "lxml")
-            f = soup.find("iframe", allow="autoplay").get("src")
-            r = re.findall("cid=(.*)/mtype", f)[0]
-            
-            if size == "small":
-                # 320 × 180
-                url2 = "http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_sm_w.mp4".format(r[:1], r[:3], r, r)
-            elif size == "big":
-                # 720 × 404
-                url2 = "http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_dmb_w.mp4".format(r[:1], r[:3], r, r)
 
-            req2 = requests.get(url2)
-            status2 = req2.status_code
-            if status2 == 200:
-                if fname == None:
+        video_search_url = "https://www.dmm.co.jp/litevideo/-/detail/=/cid=" + cid
+        r = requests.get(video_search_url)
+        s = r.status_code
+
+        if s == 200:
+            soup = BeautifulSoup(r.text, "lxml")
+            find_src = soup.find("iframe", allow="autoplay").get("src")
+            tcid = re.findall("cid=(.*)/mtype", find_src)[0]
+
+            if size == "small":  # 320 × 180
+                video_url = "http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_sm_w.mp4".format(tcid[:1], tcid[:3], tcid, tcid)
+            elif size == "big":  # 720 × 404
+                video_url = "http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_dmb_w.mp4".format(tcid[:1], tcid[:3], tcid, tcid)
+
+            r = requests.get(video_url)
+            s = r.status_code
+
+            if s == 200:
+                if fname is None:
                     fname = cid
-                else:
-                    fname = fname
-                ydl_opts = {"outtmpl": fname + ".mp4", "quiet": True}
+
+                ydl_opts = {
+                    "outtmpl": fname + ".mp4",
+                    "quiet": True,
+                    "no_warnings": True
+                }
                 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                    ydl.download([url2])
-                return {"requests_status":status2, "message": "Successfully downloaded video"}
+                    ydl.download([video_url])
+
+                status = {"status": s, "message": "Successfully downloaded video"}
+
             else:
-                return {"requests_status":status2, "message": "Failed to download video"}
+                status = {"status": s, "message": "Not found"}
         else:
-            return {"requests_status":status, "message": "Failed to get video link"}
+            status = {"status": s, "message": "Not found"}
+
+        return status
