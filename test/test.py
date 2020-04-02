@@ -4,8 +4,8 @@ import os
 from dmm import DMM
 
 # api_idとアフィリエイトIDをセット
-api_id = os.environ.get('api_id')
-affiliate_id = os.environ.get('affiliate_id')
+api_id = os.environ.get("API_ID")
+affiliate_id = os.environ.get("AFFILIATE_ID")
 
 # インスタンスを作成
 api = DMM(api_id=api_id, affiliate_id=affiliate_id)
@@ -32,4 +32,4 @@ series_search = api.series_search(floor_id=91)
 author = api.author_search(floor_id=72)
 
 #サンプル動画ドウンロード
-dl_st = DMM.sample_download(cid='blor0018', fname='sample', size="big")
+dl_st = DMM.sample_download(cid='abgktk_0012', fname='sample', size="big")
