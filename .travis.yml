@@ -6,4 +6,4 @@ install:
   - pip3 install dmm_search3
 
 script:
-  - python3 test/test.py
+  - python3 test.py
