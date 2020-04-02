@@ -1,11 +1,25 @@
-# CIの定期ビルド時に実行されるテスト用スクリプトです
-
 import os
 from dmm import DMM
 
-# api_idとアフィリエイトIDをセット
+"""
+api_idとaffiliate_idを取得してください: https://affiliate.dmm.com/api/regist_guide
+api_id = 'YOUR_API_ID'
+affiliate_id = 'YOUR_AFFILIATE_ID'
+"""
+
 api_id = os.environ.get("API_ID")
 affiliate_id = os.environ.get("AFFILIATE_ID")
+
+"""検索メソッド
+各メソッドのパラメーター及びレスポンスは以下のURLを参照してください
+商品検索: https://affiliate.dmm.com/api/v3/itemlist.html
+フロア: https://affiliate.dmm.com/api/v3/floorlist.html
+女優検索: https://affiliate.dmm.com/api/v3/actresssearch.html
+ジャンル検索: https://affiliate.dmm.com/api/v3/genresearch.html
+メーカー検索: https://affiliate.dmm.com/api/v3/makersearch.html
+シリーズ検索: https://affiliate.dmm.com/api/v3/seriessearch.html
+作者検索: https://affiliate.dmm.com/api/v3/authorsearch.html
+"""
 
 # インスタンスを作成
 api = DMM(api_id=api_id, affiliate_id=affiliate_id)
@@ -31,5 +45,10 @@ series_search = api.series_search(floor_id=91)
 # 作者検索
 author = api.author_search(floor_id=72)
 
-# サンプル動画ドウンロード
-dl_st = DMM.sample_download(cid="abgktk_0012", fname="sample", size="big")
+# 商品検索メソッドからcontent_idを抜き出し、サンプル動画をダウンロードする
+items = api.item_search(site='FANZA', keyword='バレンタイン', hits=10)
+for i in items['result']['items']:
+    cid = i.get('content_id')
+    title = i.get('title')
+    status = DMM.sample_download(cid=cid)
+    print(cid, title, status)
