@@ -1,4 +1,4 @@
-#Travis CIの定期ビルド時に実行されるテスト用スクリプトです
+# CIの定期ビルド時に実行されるテスト用スクリプトです
 
 import os
 from dmm import DMM
@@ -10,26 +10,26 @@ affiliate_id = os.environ.get("AFFILIATE_ID")
 # インスタンスを作成
 api = DMM(api_id=api_id, affiliate_id=affiliate_id)
 
-#商品検索
+# 商品検索
 item_search = api.item_search(site="FANZA", hits=1, keyword="バレンタイン")
 
-#フロア一覧
+# フロア一覧
 floor_list = api.floor_list()
 
-#女優検索
+# 女優検索
 actress_search = api.actress_search()
 
-#ジャンル検索
+# ジャンル検索
 genre_search = api.genre_search(floor_id=91)
 
-#メーカー検索
+# メーカー検索
 maker_search = api.maker_search(floor_id=91)
 
-#シリーズ検索
+# シリーズ検索
 series_search = api.series_search(floor_id=91)
 
-#作者検索
+# 作者検索
 author = api.author_search(floor_id=72)
 
-#サンプル動画ドウンロード
+# サンプル動画ドウンロード
 dl_st = DMM.sample_download(cid="abgktk_0012", fname="sample", size="big")
