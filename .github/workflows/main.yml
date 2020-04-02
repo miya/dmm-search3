@@ -16,5 +16,5 @@ jobs:
     - name: run dmm_search3
       run: python3 test.py
       env:
-        api_id: ${{ secrets.API_ID }}
-        affiliate_id: ${{ secrets.AFFILIATE_ID }}
+        API_ID: ${{ secrets.API_ID }}
+        AFFILIATE_ID: ${{ secrets.AFFILIATE_ID }}
