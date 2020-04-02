@@ -11,7 +11,7 @@ affiliate_id = os.environ.get("AFFILIATE_ID")
 api = DMM(api_id=api_id, affiliate_id=affiliate_id)
 
 #商品検索
-item_search = api.item_search(site='FANZA', hits=1, keyword='バレンタイン')
+item_search = api.item_search(site="FANZA", hits=1, keyword="バレンタイン")
 
 #フロア一覧
 floor_list = api.floor_list()
@@ -32,4 +32,5 @@ series_search = api.series_search(floor_id=91)
 author = api.author_search(floor_id=72)
 
 #サンプル動画ドウンロード
-dl_st = DMM.sample_download(cid='abgktk_0012', fname='sample', size="big")
+dl_st = DMM.sample_download(cid="abgktk_0012", fname="sample", size="big")
+
