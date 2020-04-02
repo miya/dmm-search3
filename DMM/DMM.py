@@ -226,10 +226,10 @@ class DMM:
                 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                     ydl.download([video_url])
 
-                status = {"status": s, "message": "Successfully downloaded video"}
+                status = {"status": s, "message": "Download successful"}
 
             else:
-                status = {"status": s, "message": "Not found"}
+                status = {"status": s, "message": "Download failed"}
         else:
             status = {"status": s, "message": "Not found"}
 
