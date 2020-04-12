@@ -1,9 +1,9 @@
 # dmm_search3
 
-DMM Web API Version 3.0 Wrapper for Python3
-
 [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/miya/dmm_search3/blob/master/LICENSE.txt)
 ![](https://github.com/miya/dmm_search3/workflows/workflow/badge.svg)
+
+DMM Web API Version 3.0 Wrapper for Python3
 
 ## Install  
 ```
