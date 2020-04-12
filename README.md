@@ -3,10 +3,8 @@
 DMM Web API Version 3.0 Wrapper for Python3
 
 [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/miya/dmm_search3/blob/master/LICENSE.txt)
-[![Build Status](https://travis-ci.org/miya/dmm_search3.svg?branch=master)](https://travis-ci.org/0x0u/dmm_search3)
 ![](https://github.com/miya/dmm_search3/workflows/workflow/badge.svg)
-[![Requirements Status](https://requires.io/github/miya/dmm_search3/requirements.svg?branch=master)](https://requires.io/github/miya/dmm_search3/requirements/?branch=master)
- 
+
 ## Install  
 ```
 $ pip3 install dmm_search3
