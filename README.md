@@ -5,6 +5,12 @@
 
 DMM Web API Version 3.0 Wrapper for Python3
 
+## Requirements
+* api_id
+* affiliate_id
+
+Please get it [here](https://affiliate.dmm.com/api/guide/)
+
 ## Install  
 ```
 $ pip3 install dmm_search3
