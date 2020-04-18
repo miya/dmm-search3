@@ -6,10 +6,10 @@
 DMM Web API Version 3.0 Wrapper for Python3
 
 ## Requirements
+Please get it [here](https://affiliate.dmm.com/api/guide/).
+
 * api_id
 * affiliate_id
-
-Please get it [here](https://affiliate.dmm.com/api/guide/)
 
 ## Install  
 ```
