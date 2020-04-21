@@ -11,7 +11,7 @@ class API:
         self.api_id = api_id
         self.affiliate_id = affiliate_id
 
-    def request(self, endpoint, kwargs):
+    def _request(self, endpoint, kwargs):
         url = self.api_url + endpoint
 
         query = {
@@ -42,7 +42,7 @@ class API:
         https://affiliate.dmm.com/api/v3/itemlist.html   
         """
         endpoint = "/ItemList"
-        return self.request(endpoint, kwargs)
+        return self._request(endpoint, kwargs)
 
     def floor_list(self, **kwargs):
         """フロア一覧
@@ -57,7 +57,7 @@ class API:
         https://affiliate.dmm.com/api/v3/floorlist.html
         """
         endpoint = "/FloorList"
-        return self.request(endpoint, kwargs)
+        return self._request(endpoint, kwargs)
 
     def actress_search(self, **kwargs):
         """女優検索
@@ -72,7 +72,7 @@ class API:
         https://affiliate.dmm.com/api/v3/actresssearch.html
         """
         endpoint = "/ActressSearch"
-        return self.request(endpoint, kwargs)
+        return self._request(endpoint, kwargs)
 
     def genre_search(self, **kwargs):
         """ジャンル検索
@@ -92,7 +92,7 @@ class API:
         https://affiliate.dmm.com/api/v3/genresearch.html
         """
         endpoint = "/GenreSearch"
-        return self.request(endpoint, kwargs)
+        return self._request(endpoint, kwargs)
 
     def maker_search(self, **kwargs):
         """メーカー検索
@@ -113,7 +113,7 @@ class API:
 
         """
         endpoint = "/MakerSearch"
-        return self.request(endpoint, kwargs)
+        return self._request(endpoint, kwargs)
 
     def series_search(self, **kwargs):
         """シリーズ検索
@@ -133,7 +133,7 @@ class API:
         https://affiliate.dmm.com/api/v3/seriessearch.html
         """
         endpoint = "/SeriesSearch"
-        return self.request(endpoint, kwargs)
+        return self._request(endpoint, kwargs)
 
     def author_search(self, **kwargs):
         """作者検索
@@ -148,7 +148,7 @@ class API:
         https://affiliate.dmm.com/api/v3/authorsearch.html
         """
         endpoint = "AuthorSearch"
-        return self.request(endpoint, kwargs)
+        return self._request(endpoint, kwargs)
 
 
 def sample_download(cid, fname=None, size="small"):
