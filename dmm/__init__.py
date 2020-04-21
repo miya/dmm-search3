@@ -1,1 +1,1 @@
-from .DMM import *
+from .dmm import *
