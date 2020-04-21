@@ -19,14 +19,14 @@ $ pip3 install dmm_search3
 ## Initialize
 ```python
 # モジュールのインポート
-from dmm import DMM
+import dmm
 
 # API ID と アフィリエイトIDをセット
 api_id = "your_api_id"
 affiliate_id = "your_affiliate_id"
 
 # インスタンスの作成
-api = DMM(api_id=api_id, affiliate_id=affiliate_id)
+api = dmm.API(api_id=api_id, affiliate_id=affiliate_id)
 ```
 
 ## Feature
@@ -53,7 +53,7 @@ series_search = api.series_search(floor_id=91)
 author_search = api.author_search(floor_id=91)
 
 # サンプル動画ドウンロード
-DMM.sample_download(cid="abgktk_0012", fname="sample", size="big")
+dmm.sample_download(cid="abgktk_0012", fname="sample", size="big")
 ```
 
 ## Sample
