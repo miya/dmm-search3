@@ -1,10 +1,10 @@
 import os
-from dmm import DMM
+import dmm
 
 """
 api_idとaffiliate_idを取得してください: https://affiliate.dmm.com/api/regist_guide
-api_id = 'YOUR_API_ID'
-affiliate_id = 'YOUR_AFFILIATE_ID'
+api_id = "YOUR_API_ID"
+affiliate_id = "YOUR_AFFILIATE_ID"
 """
 
 api_id = os.environ.get("API_ID")
@@ -22,7 +22,7 @@ affiliate_id = os.environ.get("AFFILIATE_ID")
 """
 
 # インスタンスを作成
-api = DMM(api_id=api_id, affiliate_id=affiliate_id)
+api = dmm.API(api_id=api_id, affiliate_id=affiliate_id)
 
 # 商品検索
 item_search = api.item_search(site="FANZA", hits=1, keyword="バレンタイン")
@@ -46,9 +46,9 @@ series_search = api.series_search(floor_id=91)
 author = api.author_search(floor_id=72)
 
 # 商品検索メソッドからcontent_idを抜き出し、サンプル動画をダウンロードする
-items = api.item_search(site='FANZA', keyword='バレンタイン', hits=10)
-for i in items['result']['items']:
-    cid = i.get('content_id')
-    title = i.get('title')
-    status = DMM.sample_download(cid=cid)
+items = api.item_search(site="FANZA", hits=10)
+for i in items["result"]["items"]:
+    cid = i.get("content_id")
+    title = i.get("title")
+    status = dmm.sample_download(cid=cid)
     print(cid, title, status)

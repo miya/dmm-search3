@@ -1,4 +1,4 @@
-# dmm_search3
+# dmm-search3
 
 [![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://github.com/miya/dmm_search3/blob/master/LICENSE.txt)
 ![](https://github.com/miya/dmm_search3/workflows/workflow/badge.svg)
@@ -13,7 +13,7 @@ Please get it [here](https://affiliate.dmm.com/api/guide/).
 
 ## Install  
 ```
-$ pip3 install dmm_search3
+$ pip3 install dmm-search3
 ```
 
 ## Initialize
