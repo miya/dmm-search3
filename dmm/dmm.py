@@ -35,7 +35,7 @@ class API:
         Returns
         ---------
         dict
-            商品情報がJSONで返ります。
+            商品情報
 
         Docs
         ---------
@@ -50,7 +50,7 @@ class API:
         Returns
         ---------
         dict
-            フロア一覧がJSONで返ります。
+            フロア一覧
 
         Docs
         ---------
@@ -65,7 +65,7 @@ class API:
         Returns
         ---------
         dict
-            女優の情報がJSONで返ります。
+            女優情報
 
         Docs
         ---------
@@ -85,7 +85,7 @@ class API:
         Returns
         ---------
         dict
-            ジャンル一覧がJSONで返ります。
+            ジャンル一覧
 
         Docs
         ---------
@@ -105,7 +105,7 @@ class API:
         Returns
         ---------
         dict
-            メーカー一覧がJSONで返ります。 
+            メーカー一覧
 
         Docs
         ---------
@@ -126,7 +126,7 @@ class API:
         Returns
         ---------
         dict
-            シリーズ一覧がJSONで返ります。
+            シリーズ一覧
 
         Docs
         ---------
@@ -141,7 +141,12 @@ class API:
         Required parameters
         ---------
         floor_id: int
-            フロア一覧から取得できるfloor_id 例: 91(VRch) 
+            フロア一覧から取得できるfloor_id 例: 91(VRch)
+
+        Returns
+        ---------
+        dict
+            作者一覧
 
         Docs
         ---------
@@ -154,24 +159,25 @@ class API:
 def sample_download(cid, fname=None, size="small"):
     """サンプル動画ダウンロード
 
-    Required parameters
-    ---------
-    cid: str
-        商品検索APIのcontent_id、商品ページから取得できる品番 例: blor00128
-
     Parameters
-    ---------
+    ----------
+    cid: str
+        Required
+        商品検索APIなどで取得できるcontent_id
+
     fname: str
+        default: cid
         ファイル名
 
     size: str
-        ダウンロードする動画の大きさを指定します。small(320x180) or big(720x404)
+        default: "small"
+        動画のサイズ small: 320 × 180 or big: 720 × 404:
 
     Returns
-    ---------
+    -------
     dict
+        requestsのステータスコード
     """
-
     video_search_url = "https://www.dmm.co.jp/litevideo/-/detail/=/cid=" + cid
     r = requests.get(video_search_url)
     s = r.status_code
