@@ -207,11 +207,11 @@ def sample_download(cid, fname=None, size="small"):
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([video_url])
 
-            status = {"status": s, "message": "Download successful"}
+            status = {"status": s, "message": "Download successful", "download_url": video_url}
 
         else:
-            status = {"status": s, "message": "Download failed"}
+            status = {"status": s, "message": "Download failed", "download_url": video_url}
     else:
-        status = {"status": s, "message": "Not found"}
+        status = {"status": s, "message": "Not found", "download_url": ""}
 
     return status
