@@ -156,7 +156,7 @@ class API:
         return self._request(endpoint, kwargs)
 
 
-def sample_download(content_id, file_name=None, size="small"):
+def sample_download(content_id, file_name=None, size="small", download=True):
     """サンプル動画ダウンロード
 
     Parameters
@@ -172,6 +172,10 @@ def sample_download(content_id, file_name=None, size="small"):
     size: str
         default: "small"
         動画のサイズ small: 320 × 180 or big: 720 × 404:
+
+    download: bool
+        default: True
+        動画のダウンロードを行うか
 
     Returns
     -------
@@ -202,6 +206,13 @@ def sample_download(content_id, file_name=None, size="small"):
 
         r = requests.get(video_url)
         s = r.status_code
+
+        if not download:
+            if s == 200:
+                status = {"status_code": s, "message": "This URL is valid", "download_url": video_url}
+            else:
+                status = {"status_code": s, "message": "This URL is invalid", "download_url": video_url}
+            return status
 
         if s == 200:
             if file_name is None:
