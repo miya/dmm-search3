@@ -25,17 +25,17 @@ class API:
         return requests.get(url, params=query).json()
 
     def item_search(self, **kwargs):
-        """商品検索
+        """
+        商品検索
 
         Required parameters
         ---------
         site: str
-            "FANZA" or "DMM.com"    
+            "FANZA" or "DMM.com"
 
         Returns
         ---------
-        dict
-            商品情報
+        商品情報: dict
 
         Docs
         ---------
@@ -45,12 +45,12 @@ class API:
         return self._request(endpoint, kwargs)
 
     def floor_list(self, **kwargs):
-        """フロア一覧
+        """
+        フロア一覧
 
         Returns
         ---------
-        dict
-            フロア一覧
+        フロア一覧: dict
 
         Docs
         ---------
@@ -60,12 +60,12 @@ class API:
         return self._request(endpoint, kwargs)
 
     def actress_search(self, **kwargs):
-        """女優検索
+        """
+        女優検索
 
         Returns
         ---------
-        dict
-            女優情報
+        女優情報: dict
 
         Docs
         ---------
@@ -75,7 +75,8 @@ class API:
         return self._request(endpoint, kwargs)
 
     def genre_search(self, **kwargs):
-        """ジャンル検索
+        """
+        ジャンル検索
 
         Required parameters
         ---------
@@ -84,8 +85,7 @@ class API:
         
         Returns
         ---------
-        dict
-            ジャンル一覧
+        ジャンル一覧: dict
 
         Docs
         ---------
@@ -95,7 +95,8 @@ class API:
         return self._request(endpoint, kwargs)
 
     def maker_search(self, **kwargs):
-        """メーカー検索
+        """
+        メーカー検索
 
         Required parameters
         ---------
@@ -104,8 +105,7 @@ class API:
 
         Returns
         ---------
-        dict
-            メーカー一覧
+        メーカー一覧: dict
 
         Docs
         ---------
@@ -116,7 +116,8 @@ class API:
         return self._request(endpoint, kwargs)
 
     def series_search(self, **kwargs):
-        """シリーズ検索
+        """
+        シリーズ検索
 
         Required parameters
         ---------
@@ -125,8 +126,7 @@ class API:
         
         Returns
         ---------
-        dict
-            シリーズ一覧
+        シリーズ一覧: dict
 
         Docs
         ---------
@@ -136,7 +136,8 @@ class API:
         return self._request(endpoint, kwargs)
 
     def author_search(self, **kwargs):
-        """作者検索
+        """
+        作者検索
 
         Required parameters
         ---------
@@ -145,8 +146,7 @@ class API:
 
         Returns
         ---------
-        dict
-            作者一覧
+        作者一覧: dict
 
         Docs
         ---------
@@ -157,30 +157,26 @@ class API:
 
 
 def sample_download(content_id, file_name=None, size="small", download=True, **kwargs):
-    """サンプル動画ダウンロード
+    """
+    サンプル動画ダウンロード
 
     Parameters
     ----------
     content_id: str
-        Required
         商品検索APIなどで取得できるcontent_id
 
     file_name: str
-        default: None
-        ファイル名
+        保存する際のファイル名
 
     size: str
-        default: "small"
-        動画のサイズ small: 320 × 180 or big: 720 × 404:
+        動画のサイズ small: 320 × 180 or big: 720 × 404
 
     download: bool
-        default: True
         動画のダウンロードを行うか
 
     Returns
     -------
-    dict
-        requestsのステータスコード, ステータスメッセージ, サンプル動画のURL
+    requestsのステータスコード, ステータスメッセージ, サンプル動画のURL: dict
     """
     video_search_url = "https://www.dmm.co.jp/litevideo/-/detail/=/cid=" + content_id
     r = requests.get(video_search_url)
