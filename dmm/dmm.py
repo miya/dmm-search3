@@ -187,10 +187,18 @@ def sample_download(cid, fname=None, size="small"):
         find_src = soup.find("iframe", allow="autoplay").get("src")
         tcid = re.findall("cid=(.*)/mtype", find_src)[0]
 
-        if size == "small":  # 320 × 180
-            video_url = "http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_sm_w.mp4".format(tcid[:1], tcid[:3], tcid, tcid)
-        else:  # 720 × 404
-            video_url = "http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_dmb_w.mp4".format(tcid[:1], tcid[:3], tcid, tcid)
+        # 320 × 180
+        small_video_url = "http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_sm_w.mp4".format(tcid[:1], tcid[:3], tcid, tcid)
+
+        # 720 × 404
+        big_video_url = "http://cc3001.dmm.co.jp/litevideo/freepv/{}/{}/{}/{}_dmb_w.mp4".format(tcid[:1], tcid[:3], tcid, tcid)
+
+        if size == "small":
+            video_url = small_video_url
+        elif size == "big":
+            video_url = big_video_url
+        else:
+            video_url = small_video_url
 
         r = requests.get(video_url)
         s = r.status_code
