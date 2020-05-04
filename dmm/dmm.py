@@ -156,7 +156,7 @@ class API:
         return self._request(endpoint, kwargs)
 
 
-def sample_download(content_id, file_name=None, size="small", download=True):
+def sample_download(content_id, file_name=None, size="small", download=True, **kwargs):
     """サンプル動画ダウンロード
 
     Parameters
@@ -223,6 +223,8 @@ def sample_download(content_id, file_name=None, size="small", download=True):
                 "quiet": True,
                 "no_warnings": True
             }
+            ydl_opts.update(kwargs)
+
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([video_url])
 
