@@ -50,5 +50,5 @@ items = api.item_search(site="FANZA", hits=10)
 for i in items["result"]["items"]:
     cid = i.get("content_id")
     title = i.get("title")
-    status = dmm.sample_download(cid=cid)
-    print(cid, title, status)
+    status = dmm.sample_download(content_id=cid)
+    print(title, status)
