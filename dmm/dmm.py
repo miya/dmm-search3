@@ -180,7 +180,7 @@ def sample_download(content_id, file_name=None, size="small", download=True):
     Returns
     -------
     dict
-        requestsのステータスコード
+        requestsのステータスコード, ステータスメッセージ, サンプル動画のURL
     """
     video_search_url = "https://www.dmm.co.jp/litevideo/-/detail/=/cid=" + content_id
     r = requests.get(video_search_url)
