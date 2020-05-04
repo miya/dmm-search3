@@ -156,16 +156,16 @@ class API:
         return self._request(endpoint, kwargs)
 
 
-def sample_download(cid, fname=None, size="small"):
+def sample_download(content_id, file_name=None, size="small"):
     """サンプル動画ダウンロード
 
     Parameters
     ----------
-    cid: str
+    content_id: str
         Required
         商品検索APIなどで取得できるcontent_id
 
-    fname: str
+    file_name: str
         default: cid
         ファイル名
 
@@ -178,7 +178,7 @@ def sample_download(cid, fname=None, size="small"):
     dict
         requestsのステータスコード
     """
-    video_search_url = "https://www.dmm.co.jp/litevideo/-/detail/=/cid=" + cid
+    video_search_url = "https://www.dmm.co.jp/litevideo/-/detail/=/cid=" + content_id
     r = requests.get(video_search_url)
     s = r.status_code
 
@@ -204,11 +204,11 @@ def sample_download(cid, fname=None, size="small"):
         s = r.status_code
 
         if s == 200:
-            if fname is None:
-                fname = cid
+            if file_name is None:
+                file_name = content_id
 
             ydl_opts = {
-                "outtmpl": fname + ".mp4",
+                "outtmpl": file_name + ".mp4",
                 "quiet": True,
                 "no_warnings": True
             }
