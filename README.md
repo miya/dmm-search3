@@ -53,7 +53,7 @@ series_search = api.series_search(floor_id=91)
 author_search = api.author_search(floor_id=91)
 
 # サンプル動画ドウンロード
-dmm.sample_download(cid="abgktk_0012", fname="sample", size="big")
+dmm.sample_download(content_id="abgktk_0012", file_name="sample", size="big")
 ```
 
 ## Sample
