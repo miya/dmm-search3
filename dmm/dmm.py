@@ -231,6 +231,6 @@ def sample_download(content_id, file_name=None, size="small", download=True):
         else:
             status = {"status_code": s, "message": "Download failed", "download_url": video_url}
     else:
-        status = {"status_code": s, "message": "Not found", "download_url": ""}
+        status = {"status_code": s, "message": "The video doesn't exist.", "download_url": ""}
 
     return status
