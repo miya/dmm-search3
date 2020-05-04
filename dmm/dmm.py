@@ -166,7 +166,7 @@ def sample_download(content_id, file_name=None, size="small", download=True, **k
         商品検索APIなどで取得できるcontent_id
 
     file_name: str
-        default: cid
+        default: None
         ファイル名
 
     size: str
