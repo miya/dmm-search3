@@ -10,8 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    - name: install dmm_search3
-      run: pip3 install dmm_search3
+    - name: install dmm-search3
+      run: pip3 install dmm-search3
       
     - name: run dmm-search3
       run: python3 test.py
